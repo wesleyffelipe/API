@@ -1,0 +1,14 @@
+import { Amostra } from "../model/Amostra.js";
+import { cadastrar } from "../repository/amostraRepository.js"
+
+
+export function cadastrarAmostra(req, res){
+    const {codigo, material, origem, resultado} = req.body
+
+    const amostra = new Amostra(codigo, material, origem, resultado);
+
+    cadastrar()
+
+    res.status(201).json(amostra);
+}
+
